@@ -40,6 +40,7 @@ module Middleman
       end
 
       def disqus_nonce
+        @options = Middleman::DisqusExtension.options
         @options[:nonce]
       end
     end
