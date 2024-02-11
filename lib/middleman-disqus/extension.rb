@@ -5,7 +5,8 @@ require 'active_support/core_ext/hash/indifferent_access'
 module Middleman
   class DisqusExtension < Extension
     option :shortname, nil, 'Your short name for Disqus'
-
+    option :nonce, nil, 'Your nonce for inline JavaScript'
+    
     def initialize(app, options_hash={}, &block)
       super
       # place in class variable so helpers can access
