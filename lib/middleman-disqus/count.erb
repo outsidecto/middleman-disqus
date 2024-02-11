@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script type="text/javascript" <%= @options[:nonce] ? "nonce='#{@options[:nonce]}'" : "" %>>
 //<![CDATA[
     var disqus_shortname = '<%= @options[:shortname] %>';
     (function () {
