@@ -22,10 +22,6 @@ module Middleman
     end
 
     helpers do
-      def disqus_nonce
-        @options[:nonce]
-      end
-
       def disqus(call_options = {})
         page_options = current_resource.metadata[:page].merge(call_options)
         @options = Middleman::DisqusExtension.options(page_options)
@@ -41,6 +37,10 @@ module Middleman
 
         file = File.join(File.dirname(__FILE__), 'count.erb')
         ERB.new(File.read(file), 0, '>').result(binding)
+      end
+
+      def disqus_nonce
+        @options[:nonce]
       end
     end
   end
