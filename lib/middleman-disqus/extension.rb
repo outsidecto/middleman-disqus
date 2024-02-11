@@ -6,7 +6,7 @@ module Middleman
   class DisqusExtension < Extension
     option :shortname, nil, 'Your short name for Disqus'
     option :nonce, nil, 'Your nonce for inline JavaScript'
-    
+
     def initialize(app, options_hash={}, &block)
       super
       # place in class variable so helpers can access
@@ -22,6 +22,10 @@ module Middleman
     end
 
     helpers do
+      def disqus_nonce
+        @options[:nonce]
+      end
+
       def disqus(call_options = {})
         page_options = current_resource.metadata[:page].merge(call_options)
         @options = Middleman::DisqusExtension.options(page_options)
